@@ -67,3 +67,7 @@ class TestDocumentPathToMarkdown:
     def test_invalid_extension_raises(self):
         with pytest.raises(ValueError, match="Unsupported file type"):
             document_path_to_markdown("/some/file.txt")
+
+    def test_file_not_found_raises(self):
+        with pytest.raises(FileNotFoundError):
+            document_path_to_markdown("/nonexistent/path/file.pdf")
